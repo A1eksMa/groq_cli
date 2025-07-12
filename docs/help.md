@@ -8,6 +8,25 @@ This is a command-line interface to interact with large language models.
 chat <command> [arguments]
 ```
 
+### `run`
+
+Starts an interactive session (REPL) to communicate with the model.
+
+**Usage:**
+
+```bash
+chat run
+```
+
+**Description:**
+
+This command launches a REPL (Read-Eval-Print Loop) environment, allowing you to execute other `chat` commands without having to type `chat` each time. It's a convenient way to manage a conversation continuously.
+
+*   **Interactive Prompt**: You will see a `chat>` prompt where you can type commands.
+*   **Command Execution**: Any command available in the CLI (like `add`, `log`, `switch`, `edit`) can be run directly. For example, just type `add` and press Enter.
+*   **History**: The session keeps a history of your commands, which you can navigate with the up and down arrow keys. The history is saved to `~/.chat_cli_history`.
+*   **Exiting**: To exit the interactive session, type `exit` or `quit`, or press `Ctrl+D`.
+
 ## Commands
 
 ### `new`

@@ -1,5 +1,7 @@
 import click
 
+from cli.commands.run import run
+
 # This will be the main entry point for the CLI.
 # We will add commands to this group from the `commands` directory.
 
@@ -10,6 +12,8 @@ def main():
     large language models.
     """
     pass
+
+main.add_command(run)
 
 if __name__ == "__main__":
     main()

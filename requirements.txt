@@ -1,6 +1,7 @@
 click
 sqlalchemy
 alembic
+prompt-toolkit
 # For later use with providers
 # requests
-# groq
+# groqprompt-toolkit
