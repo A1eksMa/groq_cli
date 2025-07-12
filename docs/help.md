@@ -86,10 +86,12 @@ This command initiates a sequence of events to continue the conversation:
 **Database Columns:**
 
 *   `id`: Unique identifier.
+*   `role`: System, user or model.
 *   `original`: The text in its original language.
 *   `english`: The English translation of the text.
 *   `parent`: The `id` of the preceding record.
 *   `children`: A list of `id`s for subsequent records.
+*   `config`: options of model configuration.
 
 ### `switch`
 
@@ -98,7 +100,7 @@ Changes the current message (HEAD) to a different message in the chat history.
 **Usage:**
 
 ```bash
-chat switch <message_id>
+chat switch <id>
 ```
 
 **Description:**
@@ -107,7 +109,7 @@ This command allows you to change the current context of the conversation to any
 
 **Arguments:**
 
-*   `<message_id>` (required): The ID of the message to set as the new current message (HEAD).
+*   `<id>` (required): The ID of the message to set as the new current message (HEAD).
 
 ### `log`
 
