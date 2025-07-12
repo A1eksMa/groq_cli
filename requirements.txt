@@ -1,0 +1,6 @@
+click
+sqlalchemy
+alembic
+# For later use with providers
+# requests
+# groq
