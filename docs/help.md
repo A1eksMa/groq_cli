@@ -1,6 +1,6 @@
 # Chat CLI Help
 
-This is a command-line interface to interact with Groq's language models.
+This is a command-line interface to interact with large language models.
 
 ## Usage
 
