@@ -11,6 +11,7 @@ authors = [
 description = "An advanced toolkit for prompt engineering and code interaction with large language models."
 readme = "README.md"
 requires-python = ">=3.8"
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
