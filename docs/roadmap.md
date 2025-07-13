@@ -9,28 +9,13 @@ The goal of this stage is to get a basic, interactive chat running with a single
     *   Integrate the `prompt-toolkit` library for a smooth command-line interface (it's already in `requirements.txt`).
 2.  **Basic API Integration**:
     *   Implement the `BaseProvider` in `cli/api/base_provider.py`.
-    *   Create a concrete implementation for a first provider (e.g., `GroqProvider`) that handles making API requests and streaming responses.
+    *   Integrate the `DummyProvider` from `cli/api/dummy_provider.py` to simulate API responses.
 3.  **Interactive Loop**:
-    *   Create the main chat loop that takes user input, sends it to the provider, and prints the streamed response.
+    *   Create the main chat loop that takes user input, sends it to the provider, and prints the response.
 4.  **API Key Management**:
     *   Implement a simple and secure way to load the API key from an environment variable.
 
-**Stage 2: Multi-Provider Support & Configuration**
-
-This stage focuses on building the pluggable API module and allowing the user to configure the application.
-
-1.  **Dynamic Provider Loading**:
-    *   Refactor the API integration to dynamically load available provider modules from the `cli/api` directory.
-2.  **Configuration System**:
-    *   Create a configuration service (`cli/services/config.py`) that reads settings from a file (e.g., `~/.chat_cli/config.json`).
-    *   Use `templates/default_config.json` to create a default configuration for new users.
-    *   Allow users to select the default provider and model in the config file.
-3.  **Model Selection Command**:
-    *   Add a command (e.g., `chat model <provider>.<model>`) to let users switch the active language model for the current session.
-4.  **Flexible NN Settings**:
-    *   Allow users to specify model parameters (like `temperature`, `max_tokens`) both in the config file and as options in the `run` command.
-
-**Stage 3: Conversation & History Management**
+**Stage 2: Conversation & History Management**
 
 This stage introduces persistence, allowing users to save, load, and manage their conversations.
 
@@ -45,7 +30,7 @@ This stage introduces persistence, allowing users to save, load, and manage thei
 4.  **Save/Load Conversations**:
     *   Create commands like `chat save <name>` and `chat load <name>` to manage different conversation threads.
 
-**Stage 4: Advanced Prompt Engineering**
+**Stage 3: Advanced Prompt Engineering**
 
 This stage adds the specialized features for prompt engineering mentioned in the `README.md`.
 
@@ -56,13 +41,19 @@ This stage adds the specialized features for prompt engineering mentioned in the
 3.  **Context Enrichment**:
     *   Add a command (`chat add-context <file>`) to easily add the content of a file into the conversation history as context for the model.
 
-**Stage 5: Usage Tracking & Project Management**
+**Stage 4: Multi-Provider Support & Configuration**
 
-The final stage for the CLI version, focusing on polish and professional features.
+This stage focuses on building the pluggable API module and allowing the user to configure the application.
 
-1.  **Token Usage Tracking**:
-    *   Extend the provider integration to capture token usage (prompt tokens, completion tokens) for each API call.
-    *   Store this information in the database alongside the messages.
-    *   Add a `chat usage` command to display token and cost estimates for the current session or conversation.
-2.  **Project Management**:
-    *   Introduce a concept of "projects" which are collections of conversations and configurations, allowing users to switch between different work contexts easily.
+1.  **Real API Integration**:
+    *   Create a concrete implementation for a first real provider (e.g., `GroqProvider`) that handles making API requests and getting responses.
+2.  **Dynamic Provider Loading**:
+    *   Refactor the API integration to dynamically load available provider modules from the `cli/api` directory.
+3.  **Configuration System**:
+    *   Create a configuration service (`cli/services/config.py`) that reads settings from a file (e.g., `~/.chat_cli/config.json`).
+    *   Use `templates/default_config.json` to create a default configuration for new users.
+    *   Allow users to select the default provider and model in the config file.
+4.  **Model Selection Command**:
+    *   Add a command (e.g., `chat model <provider>.<model>`) to let users switch the active language model for the current session.
+5.  **Flexible NN Settings**:
+    *   Allow users to specify model parameters (like `temperature`, `max_tokens`) both in the config file and as options in the `run` command.

@@ -12,7 +12,7 @@ This application is designed to be a universal client for interacting with vario
 *   **Advanced Prompt Engineering:** A dedicated environment for crafting, testing, and refining prompts.
 *   **Few-Shot Learning:** Easily provide examples to the model to improve response accuracy and relevance.
 *   **Context Management:** Fine-grained control over the conversation history sent to the model.
-*   **Response Streaming:** Get real-time output from the language model as it's being generated.
+*   **Real-time Interaction:** Get immediate output from the language model.
 *   **Usage Tracking:** Monitor token usage to keep track of costs and performance.
 *   **Multi-Provider Model Selection:** Seamlessly switch between different language models from various providers.
 *   **Project Management:** Save and load conversations, prompts, and project configurations.
