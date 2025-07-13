@@ -4,16 +4,17 @@
 
 The goal of this stage is to get a basic, interactive chat running with a single, hard-coded provider. This will form the foundation of the application.
 
-1.  **Implement `run` command**:
+1.  **Implement `new` command**:
+    *   Implement the logic in `cli/commands/new.py` to create a new project directory.
+    *   Add functionality to create a default `config.json` and an empty `chat.db` database file.
+2.  **Implement `run` command**:
     *   Flesh out `cli/commands/run.py` to launch an interactive session.
     *   Integrate the `prompt-toolkit` library for a smooth command-line interface (it's already in `requirements.txt`).
-2.  **Basic API Integration**:
+3.  **Basic API Integration**:
     *   Implement the `BaseProvider` in `cli/api/base_provider.py`.
     *   Integrate the `DummyProvider` from `cli/api/dummy_provider.py` to simulate API responses.
-3.  **Interactive Loop**:
+4.  **Interactive Loop**:
     *   Create the main chat loop that takes user input, sends it to the provider, and prints the response.
-4.  **API Key Management**:
-    *   Implement a simple and secure way to load the API key from an environment variable.
 
 **Stage 2: Conversation & History Management**
 
@@ -47,13 +48,15 @@ This stage focuses on building the pluggable API module and allowing the user to
 
 1.  **Real API Integration**:
     *   Create a concrete implementation for a first real provider (e.g., `GroqProvider`) that handles making API requests and getting responses.
-2.  **Dynamic Provider Loading**:
+2.  **API Key Management**:
+    *   Implement a simple and secure way to load the API key from an environment variable.
+3.  **Dynamic Provider Loading**:
     *   Refactor the API integration to dynamically load available provider modules from the `cli/api` directory.
-3.  **Configuration System**:
+4.  **Configuration System**:
     *   Create a configuration service (`cli/services/config.py`) that reads settings from a file (e.g., `~/.chat_cli/config.json`).
     *   Use `templates/default_config.json` to create a default configuration for new users.
     *   Allow users to select the default provider and model in the config file.
-4.  **Model Selection Command**:
+5.  **Model Selection Command**:
     *   Add a command (e.g., `chat model <provider>.<model>`) to let users switch the active language model for the current session.
-5.  **Flexible NN Settings**:
+6.  **Flexible NN Settings**:
     *   Allow users to specify model parameters (like `temperature`, `max_tokens`) both in the config file and as options in the `run` command.
