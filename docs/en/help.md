@@ -27,40 +27,40 @@ This command launches a REPL (Read-Eval-Print Loop) environment, allowing you to
 *   **History**: The session keeps a history of your commands, which you can navigate with the up and down arrow keys. The history is saved to `~/.chat_cli_history`.
 *   **Exiting**: To exit the interactive session, type `exit` or `quit`, or press `Ctrl+D`.
 
-## Commands
+**Options:**
 
-### `new`
+*   `--path <project_path>` (optional): Sets the project's working directory. Defaults to the current directory.
+*   `--dry-run` (optional): The interactive session will be executed in-memory.
 
-Creates a new chat session and project structure.
+### `config`
+
+Displays the current configuration settings.
 
 **Usage:**
 
 ```bash
-chat new <project_name> [--lang <language>] [--readme] [--license <license_type>]
+chat config
+```
+
+## Commands
+
+### `new`
+
+Creates a new chat session.
+
+**Usage:**
+
+```bash
+chat new <project_name>
 ```
 
 **Description:**
 
-This command creates a new directory with the specified `<project_name>` and initializes the project structure for a new chat session.
-
-**Project Structure:**
-
-*   **`<project_name>/`**
-    *   **`config.json`**: A configuration file with default settings.
-    *   **`chat.db`**: A database file to store user prompts and AI responses for maintaining conversation history.
-    *   **`<project_name>/`**: A directory containing the project's source code.
-        *   A Git repository is initialized in this directory (`git init`).
-        *   The contents of this directory may vary based on the selected programming language.
+This command creates the specified `<project_name>.db` (or `chat.db` if not specified) for a new chat session.
 
 **Arguments:**
 
-*   `<project_name>` (required): The name for the new project directory.
-
-**Options:**
-
-*   `--lang <language>` (optional): Specifies the programming language to set up a standard project structure. E.g., `python`, `javascript`.
-*   `--readme` (optional): Creates a `README.md` file in the source code directory with a title matching the project name.
-*   `--license <license_type>` (optional): Creates a license file in the source code directory. E.g., `MIT`, `GPL-3.0`.
+*   `<project_name>` (optional): The name for the new project.
 
 ### `add`
 

@@ -13,10 +13,10 @@ The order of precedence is as follows:
 
 This file is for storing your personal default settings that you want to apply to all your projects.
 
-*   **Path:** `~/.chat_cli/config.json`
+*   **Path:** `~/.chat_cli/chat.cfg`
 *   **Purpose:** To set global preferences like your default language, preferred model, or editor. The application looks for this file on startup.
 
-**Example `~/.chat_cli/config.json`:**
+**Example `~/.chat_cli/chat.cfg`:**
 ```json
 {
   "user_name": "Alex",
@@ -30,14 +30,15 @@ This file is for storing your personal default settings that you want to apply t
 
 ### Level 2: Project-Specific Configuration
 
-This is the primary configuration file for a specific project, created by the `chat new` command.
+This level of configuration is loaded from a project-specific database file, typically named `<project_name>.db` (with `chat.db` as the default name). This database is created and managed by the `chat new` command.
 
-*   **Path:** `<project_folder>/config.json`
-*   **Purpose:** To store settings unique to a particular project, such as the programming language or a specific model you are using for it.
-*   **Discovery:** When you run a command like `chat add` or `chat run`, the CLI automatically searches for `config.json` in the current directory and then moves up the directory tree until it finds one. This allows you to run commands from any subdirectory within your project.
+*   **Path:** `<project_folder>/<project_name>.db` (default: `chat.db`)
+*   **Purpose:** To store settings unique to a particular project, such as the programming language, specific model, or other project-specific data.
+*   **Discovery:** When you run a command like `chat add` or `chat run`, the CLI automatically searches for the project database in the current directory and then moves up the directory tree until it finds one. This allows you to run commands from any subdirectory within your project.
 
-**Example `<project_folder>/config.json`:**
-```json
+**Example (Conceptual) of Project-Specific Configuration Data:**
+(Note: This data is stored in a database, not directly in a human-readable file like JSON)
+```
 {
   "project_path": "/home/user/projects/my_python_project",
   "language": "english",
