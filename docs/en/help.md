@@ -77,10 +77,10 @@ chat add
 This command initiates a sequence of events to continue the conversation:
 
 1.  **User Input**: The user is prompted to enter their message.
-2.  **Save Prompt**: The message is saved as a new entry in `chat.db` with a unique `id`, the `original` text, and the `parent` id.
+2.  **Save Prompt**: The message is saved as a new entry in `chat.db` with a unique `id`, the `original` text, and the `parent_id`.
 3.  **Translate Prompt**: The message is translated into English, and the `english` field is updated.
 4.  **Get Original Response**: The full conversation history (in the original language) is sent to the model.
-5.  **Save Original Response**: The model's response is saved as a new record, linked to the user's prompt via the `parent` field.
+5.  **Save Original Response**: The model's response is saved as a new record, linked to the user's prompt via the `parent_id` field.
 6.  **Get English Response**: The English conversation history is sent to the model, and the English response is saved in the `english` field of the new record.
 7.  **Update State**: The response record becomes the new "current" message.
 
@@ -97,8 +97,7 @@ This command initiates a sequence of events to continue the conversation:
    │ id: 10                   │       │ id: 11                    │
    │ original: "Как дела?"    │       │ original: "У меня все..." │
    │ english: "How are you?"  │       │ english: "I'm doing..."   │
-   │ parent: 9                │       │ parent: 10                │
-   │ children: [11]           ├──────►│ children: NULL            │
+   │ parent_id: 9             │       │ parent_id: 10             │
    └──────────────────────────┘       └───────────────────────────┘
 ```
 
@@ -108,8 +107,7 @@ This command initiates a sequence of events to continue the conversation:
 *   `role`: System, user or model.
 *   `original`: The text in its original language.
 *   `english`: The English translation of the text.
-*   `parent`: The `id` of the preceding record.
-*   `children`: A list of `id`s for subsequent records.
+*   `parent_id`: The `id` of the preceding record.
 *   `config`: options of model configuration.
 
 ### `switch`

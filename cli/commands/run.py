@@ -4,12 +4,10 @@ from prompt_toolkit import PromptSession
 from prompt_toolkit.history import FileHistory
 import os
 
-# Импортируем главную группу команд из cli.py
-from cli.cli import main as cli_group
-
 @click.command()
 def run():
     """Запускает интерактивную сессию (REPL) для общения с моделью."""
+    from cli.cli import main as cli_group
     
     # Создаем сессию с историей. История будет сохраняться в файле.
     history_file = os.path.expanduser('~/.chat_cli_history')
